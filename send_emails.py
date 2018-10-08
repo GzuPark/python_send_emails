@@ -72,6 +72,7 @@ class Emails:
             time.sleep(self.timesleep+random.random()*2)
 
 # TODO: test mode - send email to myself
+# put in individual information script
 def main():
     clear_screen()
 
