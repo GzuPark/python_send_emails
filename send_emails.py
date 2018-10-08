@@ -1,3 +1,4 @@
+import os
 import time
 import random
 import smtplib
@@ -63,6 +64,7 @@ class Emails:
             pass
         else:
             raise ValueError(notice)
+        print("")
         for each in self.to_email_list:
             to_name = each.split(',')[0].strip()
             to_email = each.split(',')[1].strip()
@@ -71,6 +73,11 @@ class Emails:
 
 
 def main():
+    if os.name == 'posix':
+        os.system('clear')
+    else:
+        os.system('cls')
+
     # Notice available account
     input('\nMust be use Gmail or G-Suite account. (Enter) ')
 
