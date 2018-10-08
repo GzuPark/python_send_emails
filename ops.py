@@ -4,6 +4,13 @@ import time
 from getpass import getpass
 
 
+def clear_screen():
+    if os.name == 'posix':
+        os.system('clear')
+    else:
+        os.system('cls')
+
+
 def stopwatch(fn):
 
     def wrapper(*args, **kwargs):
@@ -14,7 +21,7 @@ def stopwatch(fn):
     return wrapper
 
 
-def cleanhtml(raw_html):
+def clean_html(raw_html):
     cleanr = re.compile('<.*?>')
     cleantext = re.sub(cleanr, '', raw_html)
     return ' '.join(cleantext.split())

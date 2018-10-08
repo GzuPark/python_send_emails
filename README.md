@@ -10,7 +10,7 @@ This email sender API has a benefit to be able to write an HTML style: You can i
 
 ## Run
 ```shell
-$ python send_emails.py
+$ python3 send_emails.py
 
 Must be use Gmail or G-Suite account. (Enter)
 
@@ -31,8 +31,13 @@ Enter the subject of the email:
 
 ------------------------------ Start sending ------------------------------
 
+Are you sure to send emails to John Doe et 1? [Y/n]
+
 Send complete to John Doe(john.doe@example.com)
 Send complete to Author(author@example.com)
 
         Runtime: 16.932s
 ```
+
+## Issues
+1. `smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted.)` - Username or Password error

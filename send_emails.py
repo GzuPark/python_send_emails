@@ -5,7 +5,7 @@ import smtplib
 from email.message import EmailMessage
 from email.headerregistry import Address
 from email.utils import make_msgid
-from ops import stopwatch, attach_dir, cleanhtml, get_list, validity, img_extension, security_check
+from ops import clear_screen, stopwatch, attach_dir, clean_html, get_list, validity, img_extension, security_check
 
 
 class Emails:
@@ -36,7 +36,7 @@ class Emails:
         msg['To'] = Address(to_name, to_email.split('@')[0], to_email.split('@')[1])
         dear_comment = "<p>Hello {},</p>".format(to_name)
         email_body = dear_comment + self.contents
-        msg.set_content(cleanhtml(email_body))
+        msg.set_content(clean_html(email_body))
 
         asparagus_cid = make_msgid()
         msg.add_alternative(email_body.format(asparagus_cid=asparagus_cid[1:-1]), subtype='html')
@@ -71,12 +71,9 @@ class Emails:
             self.sender(to_name, to_email)
             time.sleep(self.timesleep+random.random()*2)
 
-
+# TODO: test mode - send email to myself
 def main():
-    if os.name == 'posix':
-        os.system('clear')
-    else:
-        os.system('cls')
+    clear_screen()
 
     # Notice available account
     input('\nMust be use Gmail or G-Suite account. (Enter) ')
